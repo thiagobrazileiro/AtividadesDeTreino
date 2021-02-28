@@ -1,5 +1,8 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+
+plt.close("all")
 
 print('Sergipe Imports and exports\n')
 
@@ -15,4 +18,12 @@ ncmInfo = ncm.loc[:, ["NCM", "NO_NCM_POR"]]
 
 impExp = impExp.merge(ncmInfo, on="NCM")
 
-print(type(impExp), type(ncmInfo))
+netValues = pd.Series([impExp["Net_jan"].sum(), impExp["Net_fev"].sum(), impExp["Net_mar"].sum(), impExp["Net_abr"].sum(), impExp["Net_mai"].sum(), impExp["Net_jun"].sum(),
+                       impExp["Net_jul"].sum(), impExp["Net_ago"].sum(), impExp["Net_set"].sum(), impExp["Net_out"].sum(), impExp["Net_nov"].sum(), impExp["Net_dez"].sum()],
+                      ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'])
+
+# print(impExp["Exp_total"].sum())
+# print(impExp["Imp_total"].sum())
+
+netValues.plot()
+plt.show()
