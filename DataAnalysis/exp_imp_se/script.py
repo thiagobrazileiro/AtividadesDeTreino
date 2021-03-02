@@ -25,5 +25,8 @@ netValues = pd.Series([impExp["Net_jan"].sum(), impExp["Net_fev"].sum(), impExp[
 # print(impExp["Exp_total"].sum())
 # print(impExp["Imp_total"].sum())
 
-netValues.plot()
-plt.show()
+# Most exported item by Sergipe at 2020
+# print(impExp.loc[impExp["Exp_total"].idxmax()])
+
+# netValues.plot()
+# plt.show()
