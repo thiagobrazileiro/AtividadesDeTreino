@@ -7,13 +7,15 @@ for i in range(0, int(n)):
         aux = string
         sI = 0
         while(True):
-            if(sI >= len(aux) or len(subString) == 0):
+            if(len(subString) == 0):
                 break
-            if(subString[0] == aux[sI]):
-                subString = '' if len(subString) == 1 else subString[1:]
-                aux = aux[sI:]
-                sI = 0
-            sI += 1
+            sI = aux.find(subString[0])
+            if(sI == -1):
+                break
+            subString = '' if len(subString) == 1 else subString[1:]
+            if(sI+1 == len(aux)):
+                break
+            aux = aux[sI+1:]
 
         if len(subString) > 0:
             print("No")
