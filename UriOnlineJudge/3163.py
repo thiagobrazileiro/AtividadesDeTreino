@@ -58,3 +58,4 @@ while(True):
             print(' ' + fourth.pop(0), end='')
     if(len(first) + len(second) + len(third) + len(fourth) == 0):
         break
+print()
