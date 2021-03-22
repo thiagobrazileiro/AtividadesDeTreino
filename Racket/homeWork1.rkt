@@ -38,3 +38,15 @@
 )
 
 #! Escreva uma função para criar uma lista intercalada de tamanho N, de dois elementos e1 e e2.
+(define (merge2 n . l)
+  l
+)
+
+(define (toLast l)
+  (append2 (rest l) (list(first l)))
+)
+
+(define (append2 lhs rhs)
+  (if (empty? lhs)
+      rhs
+      (cons (first lhs) (append2 (rest lhs) rhs))))
