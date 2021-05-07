@@ -34,4 +34,12 @@ def equalize_with_color():
 
     plt.show()
 
-equalize_with_color()
+def image_rotate():
+    img = cv2.imread(r'imgs\mini_game_cutting.png', 0)
+    rows, columns = img.shape
+    mat = cv2.getRotationMatrix2D((rows/2, columns/2), 45, 1)
+    rotated_img = cv2.warpAffine(img, mat, (rows, columns))
+    fig = plt.figure(figsize=(10, 8))
+    plt.imshow(rotated_img, cmap=plt.cm.gray)
+
+image_rotate()
