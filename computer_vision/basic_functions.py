@@ -39,7 +39,8 @@ def image_rotate():
     rows, columns = img.shape
     mat = cv2.getRotationMatrix2D((rows/2, columns/2), 45, 1)
     rotated_img = cv2.warpAffine(img, mat, (rows, columns))
-    fig = plt.figure(figsize=(10, 8))
-    plt.imshow(rotated_img, cmap=plt.cm.gray)
+    cv2.imshow('rotated image', rotated_img)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 image_rotate()
