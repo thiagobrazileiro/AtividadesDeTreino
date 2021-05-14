@@ -1,13 +1,15 @@
 import numpy as np
 import cv2 as cv
+import pyautogui
 from time import time
 from windowcapture import WindowCapture
 
-img_folder = cv.imread('imgs/folder.png')
+
+img_folder = cv.imread('imgs/mini_game_cutting.png')
 
 # initialize the WindowCapture class
-wincap = WindowCapture('Trabalho')
-
+wincap = WindowCapture('Legends Of Idleon')
+first = True
 loop_time = time()
 while True:
 
@@ -18,10 +20,14 @@ while True:
     min_val, max_val, min_loc, max_loc = cv.minMaxLoc(result)
 
     if max_val >= 0.8:
+
+        if first:
+            x, y = pyautogui.locateCenterOnScreen('imgs/chop.png', confidence=0.9)
+            first = False
         
         needle_w = img_folder.shape[1]
         needle_h = img_folder.shape[0]
-
+        pyautogui.click(x, y)
         top_left = max_loc
         bottom_right = (top_left[0] + needle_w, top_left[1] + needle_h)
 
@@ -29,7 +35,7 @@ while True:
                         color=(0, 255, 0), thickness=2, lineType=cv.LINE_4)
 
 
-    cv.imshow('Computer Vision', screenshot)
+    #cv.imshow('Computer Vision', screenshot)
 
     print('FPS {}'.format(1 / (time() - loop_time)))
     loop_time = time()
