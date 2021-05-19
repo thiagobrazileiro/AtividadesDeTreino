@@ -1,6 +1,6 @@
 import pandas as pd
 
-test = pd.read_csv('data/titanic/test.csv')
-gender_submission = pd.read_csv('data/titanic/gender_submission.csv')
+#418 people will be survived, so we need predict which ones
+
 train = pd.read_csv('data/titanic/train.csv')
 print(train)
