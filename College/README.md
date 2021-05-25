@@ -1,1 +1,1 @@
-# Some colleges exercises
+# Some college exercises
