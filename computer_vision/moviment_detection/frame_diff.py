@@ -1,10 +1,5 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import cv2
+import imutils
 
 cap = cv2.VideoCapture(0)
 ret, frame = cap.read()
@@ -15,6 +10,8 @@ while True:
     prox_frame_gray = cv2.cvtColor(prox_frame, cv2.COLOR_BGR2GRAY)
     
     frame_diff = cv2.absdiff(frame_gray, prox_frame_gray)
+
+    frame_diff = imutils.resize(frame_diff, width=1080, height=1920)
 
     cv2.imshow('frame diff ',frame_diff)      
     if cv2.waitKey(1) & 0xFF == ord('q'):
